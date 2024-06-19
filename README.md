@@ -20,7 +20,7 @@ A estrutura é essa:
     </section>
 ```
 
-# PARTE 2
+## PARTE 2
 
 ![LEIAME/parte2.png](LEIAME/parte2.png)
 
@@ -30,7 +30,7 @@ A estrutura é essa:
      <div>
           <h1> </h1>
           <p> 
-               
+
           </p>
      </div>
      <img src="">
