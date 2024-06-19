@@ -17,6 +17,7 @@
 
         body {
             font-size: 16px;
+
         }
 
         @media (max-width: 600px) {
@@ -26,15 +27,14 @@
         }
 
         #personagens {
-            color: red;
             padding-left: 3rem;
             padding-right: 3rem;
         }
 
         #personagens h1 {
             /* Conheça os personagens do jogo! */
-            width: 524px;
-            height: 103px;
+            max-width: 524px;
+            min-height: 103px;
 
             font-family: 'Playfair Display';
             font-style: 3rem;
@@ -65,15 +65,62 @@
             display: flex;
             justify-content: space-between;
             align-items: stretch;
-            flex-wrap: wrap;
-            flex-grow: 1;
-            flex-flow: 1;
+            /* flex-wrap: wrap; */
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            /* border-bottom: 1px solid black; */
+            overflow-x: hidden;
+            overflow-y: hidden;
+            min-width: 400px;
+            margin-left: -3rem;
         }
 
         #personagens-fotos img {
-            height: 17rem;
+            z-index: 90;
+            /* height: 17rem; */
+            height: auto;
             max-height: 300px;
+            /* flex-grow: 0; */
+            /* flex-shrink: 2; */
         }
+
+        @media (min-width: 1000px) {
+
+            #personagens-fotos {
+                height: auto;
+                /* flex-wrap: wrap; */
+                /* margin: 0 auto; */
+
+            }
+
+            #personagens-fotos img {
+                min-width: auto;
+                /* height: 100%; */
+                width: auto !important;
+            }
+        }
+
+
+        #personagens-fotos img:not(:first-child) {
+            max-width: calc(100% / 5 + 80px);
+            margin-left: -80px;
+        }
+
+        #personagens-fotos img {
+            width: calc(100% / 5 + 80px);
+            -webkit-filter: grayscale(70%);
+            filter: grayscale(70%);
+            filter: gray;
+            /* IE */
+        }
+
+        #personagens-fotos img:hover,
+        #personagens-fotos img[modo="ativado"] {
+            -webkit-filter: none;
+            filter: none;
+            z-index: 99;
+        }
+
 
         /* ==================================================================================== */
         .personagens-info {
@@ -90,8 +137,7 @@
 
         .personagens-info h1 {
             /* Conheça os personagens do jogo! */
-            width: 524px;
-            height: 103px;
+            min-height: 103px;
 
             font-family: 'Playfair Display';
             font-style: 3rem;
@@ -109,7 +155,7 @@
 
             /* min-height: 94px; */
             min-width: 443px;
-            width: 50%;
+            max-width: 50%;
 
             font-family: 'Inter';
             font-style: normal;
@@ -122,39 +168,46 @@
 
             flex-grow: 0;
             flex-shrink: 1;
+        }
 
+        @media (max-width: 600px) {
+            .personagens-info-textos {
+                min-width: 443px;
+            }
         }
 
         .personagens-info img {
-            height: 37rem;
-            max-height: 609px;
+            /* height: 50%; */
+            /* max-height: 609px; */
+            height: min-content;
+            max-width: 50%;
             /* flex-grow: 1;
             flex-shrink: 1; */
         }
 
-        @media (max-width: 1080px) {
-            .personagens-info img {
-                height: 20rem;
-            }
 
-            .personagens-info img {
-                max-height: 100%;
-            }
-        }
 
-        @media (max-width: 600px) {
-            .personagens-info img {
-                height: 100%;
-            }
-
+        @media (max-width: 800px) {
             .personagens-info {
-                flex-wrap: wrap-reverse;
                 padding: 4rem 0;
             }
 
-            .personagens-info img {
-                max-height: 100%;
+            .personagens-info {
+                flex-flow: wrap-reverse;
             }
+
+            .personagens-info img {
+                max-width: 100%;
+            }
+                
+        }
+
+        #carrossel {
+            position: relative;
+        }
+
+        .personagens-info:not(:first-child) {
+            display: none;
         }
     </style>
 </head>
@@ -164,52 +217,95 @@
         <h1>Conheça os personagens do jogo!</h1>
         <p>Adicionar imagens e descrição dos personagens (se for ter)</p>
         <div id="personagens-fotos">
-            <a href="#p-maria"><img title="MARIA" src="./personagens/p1.png"></a>
-            <a href="#p-antonio"><img title="ANTONIO" src="./personagens/p2.png"></a>
-            <a href="#p-aline-e-rebeca"><img title="ALINE" src="./personagens/p3.png"></a>
-            <a href="#p-francisco"><img title="FRANCISCO" src="./personagens/p4.png"></a>
-            <a href="#p-aline-e-rebeca"><img title="REBECA" src="./personagens/p5.png"></a>
+            <a href="#p-maria"><img data-slide="p-maria" title="MARIA" src="./personagens/p1.png"></a>
+            <a href="#p-francisco"><img data-slide="p-francisco" title="FRANCISCO" src="./personagens/p2.png"></a>
+            <a href="#p-aline-e-rebeca"><img data-slide="p-aline-e-rebeca" title="ALINE" src="./personagens/p3.png"></a>
+            <a href="#p-antonio"><img data-slide="p-antonio" title="ANTONIO" src="./personagens/p4.png"></a>
+            <a href="#p-aline-e-rebeca"><img data-slide="p-aline-e-rebeca" title="REBECA"
+                    src="./personagens/p5.png"></a>
         </div>
         </div>
     </section>
-    <section class="personagens-info" id="p-maria">
-        <div class="personagens-info-textos">
-            <h1>Maria Flor</h1>
-            <p>
-                Maria Flor é uma caminhoneira jovem e alegre, conhecida por seu caminhão “Girassol” e sua habilidade na
-                direção. Ela ama
-                a natureza e as viagens, levando consigo um diário de bordo cheio de histórias.
-            </p>
-        </div>
-        <img src="./personagens/maria.png" alt="foto da personagem Maria Flor">
+    <section id="carrossel">
+        <!-- Slides -->
+        <section class="personagens-info" id="p-maria">
+            <div class="personagens-info-textos">
+                <h1>Maria Flor</h1>
+                <p>
+                    Maria Flor é uma caminhoneira jovem e alegre, conhecida por seu caminhão “Girassol” e sua habilidade
+                    na
+                    direção. Ela ama
+                    a natureza e as viagens, levando consigo um diário de bordo cheio de histórias.
+                </p>
+            </div>
+            <img src="./personagens/maria.png" alt="foto da personagem Maria Flor">
+        </section>
+        <section class="personagens-info" id="p-antonio">
+            <div class="personagens-info-textos">
+                <h1>Antônio Chagas</h1>
+                <p>
+                    Antônio Chagas, apelidado de “Trovão”, é um caminhoneiro pontual e contador de histórias, respeitado
+                    por sua experiência e honestidade.
+                </p>
+            </div>
+            <img src="./personagens/antonio.png" alt="foto do personagem Antônio">
+        </section>
+        <section class="personagens-info" id="p-francisco">
+            <div class="personagens-info-textos">
+                <h1>Francisco Raimundo</h1>
+                <p>
+                    Francisco Raimundo é um caminhoneiro veterano, com um semblante sério e uma postura resoluta. Seu
+                    caminhão, conhecido como “Guardião”, é tão confiável quanto sua reputação. Francisco é admirado por
+                    sua sabedoria e habilidade para navegar pelas rotas mais complicadas sem hesitar.
+                </p>
+            </div>
+            <img src="./personagens/francisco.png" alt="foto do personagem Francisco">
+        </section>
+        <section class="personagens-info" id="p-aline-e-rebeca">
+            <div class="personagens-info-textos">
+                <h1>Aline e Rebeca</h1>
+                <p>
+                    Aline e Rebeca são gêmeas caminhoneiras, inseparáveis e cheias de energia. Com seus caminhões
+                    espelhados, “Estrela da Manhã” e “Estrela da Noite”, elas são conhecidas por sua sincronia perfeita
+                    na estrada e pelo bom humor contagiante. As irmãs compartilham uma paixão por aventuras e sempre
+                    apoiam uma à outra, não importa o desafio.
+                </p>
+            </div>
+            <img src="./personagens/aline-e-rebeca.png" alt="foto das personagens Aline e Rebeca">
+        </section>
     </section>
-    <section class="personagens-info" id="p-antonio">
-        <div class="personagens-info-textos">
-            <h1>Antônio Chagas</h1>
-            <p>
-                Antônio Chagas, apelidado de “Trovão”, é um caminhoneiro pontual e contador de histórias, respeitado por sua experiência e honestidade.
-            </p>
-        </div>
-        <img src="./personagens/antonio.png" alt="foto do personagem Antônio">
-    </section>
-    <section class="personagens-info" id="p-francisco">
-        <div class="personagens-info-textos">
-            <h1>Francisco Raimundo</h1>
-            <p>
-                Francisco Raimundo é um caminhoneiro veterano, com um semblante sério e uma postura resoluta. Seu caminhão, conhecido como “Guardião”, é tão confiável quanto sua reputação. Francisco é admirado por sua sabedoria e habilidade para navegar pelas rotas mais complicadas sem hesitar.
-            </p>
-        </div>
-        <img src="./personagens/francisco.png" alt="foto do personagem Francisco">
-    </section>
-    <section class="personagens-info" id="p-aline-e-rebeca">
-        <div class="personagens-info-textos">
-            <h1>Aline e Rebeca</h1>
-            <p>
-                Aline e Rebeca são gêmeas caminhoneiras, inseparáveis e cheias de energia. Com seus caminhões espelhados, “Estrela da Manhã” e “Estrela da Noite”, elas são conhecidas por sua sincronia perfeita na estrada e pelo bom humor contagiante. As irmãs compartilham uma paixão por aventuras e sempre apoiam uma à outra, não importa o desafio.
-            </p>
-        </div>
-        <img src="./personagens/aline-e-rebeca.png" alt="foto das personagens Aline e Rebeca">
-    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.personagens-info');
+            const buttons = document.querySelectorAll('#personagens-fotos img');
+
+            // Função para mostrar o slide correspondente
+            function showSlide(event) {
+                const targetId = event.target.getAttribute('data-slide');
+                console.log(targetId)
+                buttons.forEach(button => {
+                    button.setAttribute("modo", button.getAttribute('data-slide') === targetId ? 'ativado' : 'desativado');
+                });
+                slides.forEach(slide => {
+                    slide.style.display = slide.id === targetId ? 'flex' : 'none';
+                });
+            }
+
+            // Adiciona evento de clique aos botões
+            buttons.forEach(button => {
+                button.addEventListener('click', showSlide);
+            });
+
+            if (window.location.hash) {
+                // Exibe o slide selecionado
+                const hash = window.location.hash.slice(1);
+                showSlide({ target: { getAttribute: () => hash } });
+            } else {
+                // Exibe o primeiro slide automaticamente
+                showSlide({ target: { getAttribute: () => 'p-maria' } });
+            }
+        });
+    </script>
 </body>
 
 </html>
