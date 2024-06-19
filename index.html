@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        #personagens {
+            color: red;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        #personagens h1 {
+            /* Conheça os personagens do jogo! */
+            width: 524px;
+            height: 103px;
+
+            font-family: 'Playfair Display';
+            font-style: 3rem;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 100%;
+            /* or 48px */
+            letter-spacing: 0.02em;
+
+            color: #000000;
+        }
+
+        #personagens p {
+            /* Adicionar imagens e descrição dos personagens (se for ter) */
+
+            /* Body/Regular */
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 160%;
+            /* or 26px */
+
+            color: #000000;
+        }
+
+        #personagens-fotos {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            flex-flow: 1;
+        }
+
+        #personagens-fotos img {
+            height: 17rem;
+            max-height: 300px;
+        }
+
+        /* ==================================================================================== */
+        .personagens-info {
+            padding: 4rem 140px;
+            display: flex;
+
+            justify-content: center;
+            gap: 24px;
+
+            align-content: space-around;
+
+        }
+
+
+        .personagens-info h1 {
+            /* Conheça os personagens do jogo! */
+            width: 524px;
+            height: 103px;
+
+            font-family: 'Playfair Display';
+            font-style: 3rem;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 100%;
+            /* or 48px */
+            letter-spacing: 0.02em;
+
+            color: #000000;
+        }
+
+        .personagens-info-textos {
+            /* Maria Flor é uma caminhoneira jovem e alegre, conhecida por seu caminhão “Girassol” e sua habilidade na direção. Ela ama a natureza e as viagens, levando consigo um diário de bordo cheio de histórias. */
+
+            /* min-height: 94px; */
+            min-width: 443px;
+            width: 50%;
+
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 160%;
+            /* or 51px */
+
+            color: #000000;
+
+            flex-grow: 0;
+            flex-shrink: 1;
+
+        }
+
+        .personagens-info img {
+            height: 37rem;
+            max-height: 609px;
+            /* flex-grow: 1;
+            flex-shrink: 1; */
+        }
+
+        @media (max-width: 1080px) {
+            .personagens-info img {
+                height: 20rem;
+            }
+
+            .personagens-info img {
+                max-height: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .personagens-info img {
+                height: 100%;
+            }
+
+            .personagens-info {
+                flex-wrap: wrap-reverse;
+                padding: 4rem 0;
+            }
+
+            .personagens-info img {
+                max-height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="personagens">
+        <h1>Conheça os personagens do jogo!</h1>
+        <p>Adicionar imagens e descrição dos personagens (se for ter)</p>
+        <div id="personagens-fotos">
+            <img src="./personagens/p1.png">
+            <img src="./personagens/p2.png">
+            <img src="./personagens/p3.png">
+            <img src="./personagens/p4.png">
+            <img src="./personagens/p5.png">
+        </div>
+        </div>
+    </section>
+    <section class="personagens-info">
+        <div class="personagens-info-textos">
+            <h1>Maria Flor</h1>
+            <p>
+                Maria Flor é uma caminhoneira jovem e alegre, conhecida por seu caminhão “Girassol” e sua habilidade na
+                direção. Ela ama
+                a natureza e as viagens, levando consigo um diário de bordo cheio de histórias.
+            </p>
+        </div>
+        <img src="./personagens/maria.png" alt="foto da personagem Maria Flor">
+    </section>
+    <section class="personagens-info">
+        <div class="personagens-info-textos">
+            <h1>adasdasd</h1>
+            <p>
+                asdasdasdasd
+                asdasdasdasdasdasd
+                asd
+                asd
+                asdasdasdasd
+                asdasdasdasdasdasd
+                asd
+                asd
+            </p>
+        </div>
+        <img src="./personagens/antonio.png" alt="foto do personagem Antônio">
+    </section>
+    <section class="personagens-info">
+        <div class="personagens-info-textos">
+            <h1>adasdasd</h1>
+            <p>
+                asdasdasdasd
+                asdasdasdasdasdasd
+                asd
+                asd
+                asdasdasdasd
+                asdasdasdasdasdasd
+                asd
+                asd
+            </p>
+        </div>
+        <img src="./personagens/francisco.png" alt="foto do personagem Francisco">
+    </section>
+    <section class="personagens-info">
+        <div class="personagens-info-textos">
+            <h1>adasdasd</h1>
+            <p>
+                asdasdasdasd
+                asdasdasdasdasdasd
+                asd
+                asd
+                asdasdasdasd
+                asdasdasdasdasdasd
+                asd
+                asd
+            </p>
+        </div>
+        <img src="./personagens/aline-e-rebeca.png" alt="foto das personagens Aline e Rebeca">
+    </section>
+</body>
+
+</html>
